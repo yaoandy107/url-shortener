@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose'
 import shortid from 'shortid'
 import validUrl from 'valid-url'
 import Config from '../../configs/app'
-import ShortUrlModel from '../../db/models/UrlShorten'
+import ShortUrlModel from '../../db/models/ShortUrl'
 
 async function generate (ctx: Context) {
   const originalUrl: string = ctx.query.url

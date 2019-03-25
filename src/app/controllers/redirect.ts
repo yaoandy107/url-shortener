@@ -1,6 +1,6 @@
 import { Context } from 'koa'
 import mongoose from 'mongoose'
-import ShortUrlSchema, { ShortUrl } from '../../db/models/UrlShorten'
+import ShortUrlSchema, { ShortUrl } from '../../db/models/ShortUrl'
 
 async function redirect (ctx: Context): Promise<void> {
   const urlCode = ctx.params.code
