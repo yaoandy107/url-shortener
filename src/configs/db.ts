@@ -1,3 +1,3 @@
 export default {
-  mongoURI: 'mongodb://localhost/url-shortner',
+  mongoURI: 'mongodb://localhost/short-url',
 }
