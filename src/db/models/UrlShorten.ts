@@ -16,4 +16,4 @@ const ShortUrlSchema: Schema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 })
 
-export default mongoose.model<UrlShorten>('ShortUrl', UrlShortenSchema)
+export default mongoose.model<ShortUrl>('ShortUrl', ShortUrlSchema)
