@@ -28,10 +28,15 @@ async function generate (ctx: Context) {
         ctx.body = shortUrl
       }
     } catch (err) {
-      ctx.status = 401
+      ctx.status = 400
       ctx.body = {
         message: err,
       }
+    }
+  } else {
+    ctx.status = 400
+    ctx.body = {
+      message: 'Invalid url.',
     }
   }
 }
