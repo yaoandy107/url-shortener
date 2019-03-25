@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A URL shortener",
   "scripts": {
-    "start": "tsc && node build/app.js",
+    "start": "tsc && node build/index.js",
     "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/index.ts",
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",
