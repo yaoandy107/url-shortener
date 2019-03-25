@@ -17,7 +17,14 @@
     "koa-router": "^7.4.0",
     "mongoose": "^5.4.19",
     "shortid": "^2.2.14",
-    "valid-url": "^1.0.9"
+    "valid-url": "^1.0.9",
+    "koa-compress": "^3.0.0",
+    "koa-helmet": "^4.0.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-onerror": "^4.1.0",
+    "koa-protect": "^1.0.1",
+    "koa-response-time": "^2.1.0"
   },
   "devDependencies": {
     "@types/koa": "^2.0.48",
