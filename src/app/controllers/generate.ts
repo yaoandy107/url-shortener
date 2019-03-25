@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose'
 import shortid from 'shortid'
 import validUrl from 'valid-url'
 import Config from '../../configs/app'
-import UrlShorten from '../../db/models/UrlShorten'
+import ShortUrlModel from '../../db/models/UrlShorten'
 
 async function generate (ctx: Context) {
   const originalUrl: string = ctx.query.url
@@ -11,19 +11,19 @@ async function generate (ctx: Context) {
   const updateAt: Date = new Date()
   if (validUrl.isUri(originalUrl)) {
     try {
-      let shortUrlObj = await UrlShorten.findOne({ originalUrl })
-      if (shortUrlObj) {
+      let shortUrlEntity = await ShortUrlModel.findOne({ originalUrl })
+      if (shortUrlEntity) {
         ctx.status = 200
-        ctx.body = shortUrlObj
+        ctx.body = shortUrlEntity.shortUrl
       } else {
         const shortUrl = 'https://' + Config.shortBaseUrl + '/' + urlCode
-        shortUrlObj = new UrlShorten({
+        shortUrlEntity = new ShortUrlModel({
           originalUrl,
           shortUrl,
           urlCode,
           updateAt,
         })
-        await shortUrlObj.save()
+        await shortUrlEntity.save()
         ctx.status = 200
         ctx.body = shortUrl
       }

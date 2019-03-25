@@ -1,10 +1,10 @@
 import { Context } from 'koa'
 import mongoose from 'mongoose'
-import UrlShortenSchema, { UrlShorten } from '../../db/models/UrlShorten'
+import ShortUrlSchema, { ShortUrl } from '../../db/models/UrlShorten'
 
 async function redirect (ctx: Context): Promise<void> {
   const urlCode = ctx.params.code
-  const item: UrlShorten = await UrlShortenSchema.findOne({ urlCode })
+  const item: ShortUrl = await ShortUrlSchema.findOne({ urlCode })
   if (item) {
     ctx.redirect(item.originalUrl)
   } else {

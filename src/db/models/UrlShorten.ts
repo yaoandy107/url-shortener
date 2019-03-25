@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
-export interface UrlShorten extends Document {
+export interface ShortUrl extends Document {
   originalUrl: string
   urlCode: string
   shortUrl: string
@@ -8,7 +8,7 @@ export interface UrlShorten extends Document {
   updatedAt: Date
 }
 
-const UrlShortenSchema: Schema = new Schema({
+const ShortUrlSchema: Schema = new Schema({
   originalUrl: String,
   urlCode: String,
   shortUrl: String,
@@ -16,4 +16,4 @@ const UrlShortenSchema: Schema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 })
 
-export default mongoose.model<UrlShorten>('User', UrlShortenSchema)
+export default mongoose.model<UrlShorten>('ShortUrl', UrlShortenSchema)
