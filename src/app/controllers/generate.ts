@@ -25,7 +25,7 @@ async function generate (ctx: Context) {
         })
         await shortUrlObj.save()
         ctx.status = 200
-        ctx.body = shortUrlObj
+        ctx.body = shortUrl
       }
     } catch (err) {
       ctx.status = 401
