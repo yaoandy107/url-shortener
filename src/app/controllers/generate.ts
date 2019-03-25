@@ -6,7 +6,7 @@ import Config from '../../configs/app'
 import UrlShorten from '../../db/models/UrlShorten'
 
 async function generate (ctx: Context) {
-  const originalUrl = ctx.query.url
+  const originalUrl: string = ctx.query.url
   const urlCode: string = shortid.generate()
   const updateAt: Date = new Date()
   if (validUrl.isUri(originalUrl)) {
