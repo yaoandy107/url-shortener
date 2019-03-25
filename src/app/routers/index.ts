@@ -5,6 +5,6 @@ const router: Router = new Router()
 
 router.get('/:code', controller.redirect)
 
-router.post('/', controller.generate)
+router.get('/', controller.generate)
 
 export default router

@@ -6,7 +6,7 @@ import Config from '../../configs/app'
 import UrlShorten from '../../db/models/UrlShorten'
 
 async function generate (ctx: Context) {
-  const { originalUrl } = ctx.request.body
+  const originalUrl = ctx.query.url
   const urlCode: string = shortid.generate()
   const updateAt: Date = new Date()
   if (validUrl.isUri(originalUrl)) {
@@ -16,7 +16,7 @@ async function generate (ctx: Context) {
         ctx.status = 200
         ctx.body = shortUrlObj
       } else {
-        const shortUrl = Config.shortBaseUrl + '/' + urlCode
+        const shortUrl = 'https://' + Config.shortBaseUrl + '/' + urlCode
         shortUrlObj = new UrlShorten({
           originalUrl,
           shortUrl,
