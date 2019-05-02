@@ -22,6 +22,7 @@ async function generate (ctx: Context) {
           shortUrl,
           urlCode,
           updateAt,
+          expire_at: { type: Date, default: Date.now, expires: 2592000 },
         })
         await shortUrlEntity.save()
         ctx.status = 200
