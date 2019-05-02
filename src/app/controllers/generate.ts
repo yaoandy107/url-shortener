@@ -7,7 +7,7 @@ import ShortUrlModel from '../../db/models/ShortUrl'
 
 async function generate (ctx: Context) {
   const originalUrl: string = ctx.query.url
-  const urlCode: string = shortid.generate()
+  const urlCode: string = getrandomId(5)
   const updateAt: Date = new Date()
   if (validUrl.isUri(originalUrl)) {
     try {
@@ -39,6 +39,16 @@ async function generate (ctx: Context) {
       message: 'Invalid url.',
     }
   }
+}
+
+function getrandomId (length) {
+  let text = ''
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+  for (let i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length))
+  }
+  return text
 }
 
 export default generate
