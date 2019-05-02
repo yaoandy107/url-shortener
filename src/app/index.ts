@@ -1,3 +1,4 @@
+import cors from '@koa/cors'
 import Koa from 'koa'
 import bodyparser from 'koa-bodyparser'
 import compress from 'koa-compress'
@@ -35,6 +36,8 @@ app.use(helmet())
 app.use(compress())
 // Formdata parser middleware
 app.use(bodyparser())
+// Add CORS
+app.use(cors())
 
 // Add all the api routers
 app.use(router.routes()).use(router.allowedMethods())
